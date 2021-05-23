@@ -12,27 +12,35 @@ class SalaryTest {
     fun `Salary Increase When Period Worked Is Long`() {
         val salary = Salary(Fee(), BASE_SALARY, 25)
         salary.applyIncreaseByPeriod()
-        assertEquals(5600.0, salary.getSalaryWithIncrease())
+        val actual = salary.getSalaryWithIncrease()
+
+        assertEquals(5600.0, actual)
     }
 
     @Test
     fun `Salary Increase When Period Worked Is Medium`() {
         val salary = Salary(Fee(), BASE_SALARY, 15)
         salary.applyIncreaseByPeriod()
-        assertEquals(5300.0, salary.getSalaryWithIncrease())
+        val actual = salary.getSalaryWithIncrease()
+
+        assertEquals(5300.0, actual)
     }
 
     @Test
     fun `Salary Increase When Period Worked Is Short`() {
         val salary = Salary(Fee(), BASE_SALARY, 5)
         salary.applyIncreaseByPeriod()
-        assertEquals(5150.0, salary.getSalaryWithIncrease())
+        val actual = salary.getSalaryWithIncrease()
+
+        assertEquals(5150.0, actual)
     }
 
     @Test
     fun `Salary Increase When The Increase Is Not Applicable`() {
         val salary = Salary(Fee(), BASE_SALARY, 3)
         salary.applyIncreaseByPeriod()
-        assertEquals(BASE_SALARY, salary.getSalaryWithIncrease())
+        val actual = salary.getSalaryWithIncrease()
+
+        assertEquals(BASE_SALARY, actual)
     }
 }

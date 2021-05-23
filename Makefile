@@ -1,5 +1,4 @@
-IMAGE=adoptopenjdk/openjdk11:alpine-slim
-DOCKER_RUN:=docker run --rm -it -v ${PWD}:/usr/app -w /usr/app ${IMAGE}
+DOCKER_RUN:=docker run --rm -it -v ${PWD}:/app -w /app gustavofreze/kotlin-1.5.0
 
 configure:
 	- ${DOCKER_RUN} ./gradlew wrapper --gradle-version=7.0 --distribution-type=bin
