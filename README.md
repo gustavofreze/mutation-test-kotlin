@@ -53,8 +53,8 @@ Mais detalhes sobre o [Pitest](https://pitest.org).
 ### Executando os testes
 
 ```bash
-> make test-unit       # Executa apenas os testes unitários
-> make test-mutation   # Executa apenas os testes de mutação
+> make test-unit      # Executa apenas os testes unitários
+> make test-mutation  # Executa apenas os testes de mutação
 ```
 
 <div id='util'></div>
