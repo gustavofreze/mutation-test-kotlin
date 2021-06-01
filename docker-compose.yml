@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  mutation-test-kotlin:
+    build:
+      target: dev
+      context: ../mutation-test-kotlin
+      dockerfile: Dockerfile
+    container_name: mutation_test_kotlin
+    ports:
+      - "8084:8084"
+    command: tail -f /dev/null
+    tty: true

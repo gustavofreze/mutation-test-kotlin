@@ -1,10 +1,14 @@
-DOCKER_RUN:=docker run --rm -it -v ${PWD}:/app -w /app gustavofreze/kotlin-1.5.0
+DOCKER_COMPOSE := docker-compose -f docker-compose.yml
+DOCKER_EXEC := docker exec -it mutation_test_kotlin bash
 
 configure:
-	- ${DOCKER_RUN} ./gradlew wrapper --gradle-version=7.0 --distribution-type=bin
+	${DOCKER_COMPOSE} up -d --build
 
 test-unit:
-	- ${DOCKER_RUN} ./gradlew clean test
+	${DOCKER_EXEC} ./gradlew clean test
 
 test-mutation:
-	- ${DOCKER_RUN} ./gradlew pitest
+	${DOCKER_EXEC} ./gradlew clean pitest
+
+show-coverage:
+	google-chrome build/reports/tests/test/index.html
