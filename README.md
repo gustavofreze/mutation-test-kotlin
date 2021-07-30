@@ -1,6 +1,6 @@
 ## Mutation Test Kotlin
 
-[![Minimum Kotlin Version](https://img.shields.io/badge/kotlin-%5E1.5.0-blue)](https://kotlinlang.org)
+[![Minimum Kotlin Version](https://img.shields.io/badge/kotlin-%5E1.5.21-blue)](https://kotlinlang.org)
 [![Coverage](https://img.shields.io/badge/coverage-100%25-green)](https://github.com/gustavofreze/mutation-test-kotlin)
 [![Mutation](https://img.shields.io/badge/mutation-100%25-green)](https://github.com/gustavofreze/mutation-test-kotlin)
 
@@ -34,7 +34,7 @@ considerado como coberto pelos testes.
   ```bash
   > make configure
   ```
-  
+
 <div id='tests'></div>
 
 ## Testes
@@ -43,26 +43,22 @@ considerado como coberto pelos testes.
 
 ### Pitest
 
-Neste exemplo utilizarei o framework Pitest. O Pitest é um sistema de teste de mutação de última geração, 
-fornecendo cobertura de teste para Java e jvm. É rápido, escalonável e 
-se integra a ferramentas modernas de teste e construção. 
+Neste exemplo utilizarei o framework Pitest. O Pitest é um sistema de teste de mutação de última geração, fornecendo
+cobertura de teste para Java e jvm. É rápido, escalonável e se integra a ferramentas modernas de teste e construção.
 Mais detalhes sobre o [Pitest](https://pitest.org).
 
 <div id='execute'></div>
 
 ### Executando os testes
 
+Executa apenas os testes unitários.
+
 ```bash
-> make test-unit      # Executa apenas os testes unitários
-> make test-mutation  # Executa apenas os testes de mutação
+> make test-unit
 ```
 
-<div id='util'></div>
-
-### Úteis
-
-Comandos úteis após a execução dos testes.
+Executa apenas os testes de mutação.
 
 ```bash
-> make show-coverage # Abre no Google Chrome o coverage
+> make test-mutation
 ```

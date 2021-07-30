@@ -1,14 +1,15 @@
 import info.solidsoft.gradle.pitest.PitestPluginExtension
-import org.gradle.api.tasks.testing.logging.TestExceptionFormat
-import org.gradle.api.tasks.testing.logging.TestLogEvent
+import org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
+import org.gradle.api.tasks.testing.logging.TestLogEvent.PASSED
+import org.gradle.api.tasks.testing.logging.TestLogEvent.FAILED
+import org.gradle.api.tasks.testing.logging.TestLogEvent.SKIPPED
 
 group = "org.example"
 version = "1.0.0"
 
 plugins {
-    id("jacoco")
     id("info.solidsoft.pitest") version "1.5.1"
-    id("org.jetbrains.kotlin.jvm") version "1.5.10"
+    id("org.jetbrains.kotlin.jvm") version "1.5.21"
 }
 
 repositories {
@@ -27,20 +28,9 @@ dependencies {
 tasks.named<Test>("test") {
     useJUnitPlatform()
     testLogging {
-        events = setOf(TestLogEvent.FAILED, TestLogEvent.PASSED, TestLogEvent.SKIPPED)
-        exceptionFormat = TestExceptionFormat.FULL
+        events = setOf(FAILED, PASSED, SKIPPED)
+        exceptionFormat = FULL
         showStandardStreams = true
-    }
-}
-
-tasks {
-    jacocoTestReport {
-        reports {
-            xml.isEnabled = false
-            csv.isEnabled = false
-            html.isEnabled = true
-            html.destination = layout.buildDirectory.dir("jacocoHtml").get().asFile
-        }
     }
 }
 

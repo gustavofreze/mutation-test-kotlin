@@ -1,14 +1,13 @@
-DOCKER_COMPOSE := docker-compose -f docker-compose.yml
-DOCKER_EXEC := docker exec -it mutation_test_kotlin bash
+DOCKER_COMPOSE = docker-compose
+DOCKER_EXEC = docker exec -it mutation-test-kotlin bash
+GRADLEW = ${DOCKER_EXEC} ./gradlew
 
 configure:
-	${DOCKER_COMPOSE} up -d --build
+	@${DOCKER_COMPOSE} up -d --build
+	@${GRADLEW}
 
 test-unit:
-	${DOCKER_EXEC} ./gradlew clean test
+	@${GRADLEW} test
 
 test-mutation:
-	${DOCKER_EXEC} ./gradlew clean pitest
-
-show-coverage:
-	google-chrome build/reports/tests/test/index.html
+	@${GRADLEW} pitest

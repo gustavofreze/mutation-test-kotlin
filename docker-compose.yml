@@ -3,11 +3,17 @@ version: '3.8'
 services:
   mutation-test-kotlin:
     build:
-      target: dev
       context: ../mutation-test-kotlin
-      dockerfile: Dockerfile
-    container_name: mutation_test_kotlin
+      dockerfile: ./Dockerfile
+    container_name: mutation-test-kotlin
     ports:
       - "8084:8084"
+    volumes:
+      - ./src:/opt/application/src
+      - ./gradle:/opt/application/gradle
+      - ./gradlew:/opt/application/gradlew
+      - ./build.gradle.kts:/opt/application/build.gradle.kts
+      - ./gradle.properties:/opt/application/gradle.properties
+      - ./settings.gradle.kts:/opt/application/settings.gradle.kts
     command: tail -f /dev/null
     tty: true
